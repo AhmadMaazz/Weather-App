@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DayMiniCard extends StatelessWidget {
+  final int? temp;
   const DayMiniCard({
     Key? key,
     required this.size,
+    this.temp,
   }) : super(key: key);
 
   final Size size;
@@ -69,11 +71,11 @@ class DayMiniCard extends StatelessWidget {
               ],
             ),
             // SizedBox(height: 10),
-            const Align(
+            Align(
               alignment: Alignment.center,
               child: Text(
-                '32°',
-                style: TextStyle(
+                '$temp°',
+                style: const TextStyle(
                   color: Color.fromARGB(255, 214, 214, 214),
                   fontSize: 55,
                   fontWeight: FontWeight.bold,

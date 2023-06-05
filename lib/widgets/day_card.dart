@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DayCard extends StatelessWidget {
+  final int? temp;
+  final int? wind;
+  final int? humidity;
+  final int? pressure;
+  final String? cityName;
   const DayCard({
     Key? key,
     required this.size,
+    required this.temp,
+    this.wind,
+    this.humidity,
+    this.pressure,
+    this.cityName,
   }) : super(key: key);
 
   final Size size;
@@ -97,18 +107,18 @@ class DayCard extends StatelessWidget {
               width: size.width,
               height: size.height * 0.17,
               child: Column(
-                children: const [
+                children: [
                   Text(
-                    '32°',
-                    style: TextStyle(
+                    '$temp°',
+                    style: const TextStyle(
                       fontSize: 70,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
                   Text(
-                    'Monterey',
-                    style: TextStyle(
+                    '$cityName',
+                    style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
@@ -134,9 +144,9 @@ class DayCard extends StatelessWidget {
                       Column(
                         children: [
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               children: [
-                                TextSpan(
+                                const TextSpan(
                                   text: 'Wind now\n',
                                   style: TextStyle(
                                     fontSize: 15,
@@ -144,15 +154,15 @@ class DayCard extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '  15',
-                                  style: TextStyle(
+                                  text: '  $wind',
+                                  style: const TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
                                 ),
-                                TextSpan(
-                                  text: 'km',
+                                const TextSpan(
+                                  text: 'km\\h',
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.white,
@@ -166,9 +176,9 @@ class DayCard extends StatelessWidget {
                       Column(
                         children: [
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               children: [
-                                TextSpan(
+                                const TextSpan(
                                   text: 'Humidity\n',
                                   style: TextStyle(
                                     fontSize: 15,
@@ -176,14 +186,14 @@ class DayCard extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: ' 32',
-                                  style: TextStyle(
+                                  text: ' $humidity',
+                                  style: const TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
                                 ),
-                                TextSpan(
+                                const TextSpan(
                                   text: '%',
                                   style: TextStyle(
                                     fontSize: 12,
@@ -198,25 +208,25 @@ class DayCard extends StatelessWidget {
                       Column(
                         children: [
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               children: [
-                                TextSpan(
-                                  text: 'Precipitation\n',
+                                const TextSpan(
+                                  text: 'Pressure\n',
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.white,
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '   87',
-                                  style: TextStyle(
+                                  text: '$pressure',
+                                  style: const TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
                                 ),
-                                TextSpan(
-                                  text: '%',
+                                const TextSpan(
+                                  text: 'Pa',
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.white,

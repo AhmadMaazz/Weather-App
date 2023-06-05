@@ -29,11 +29,15 @@ class _SplashScreenState extends State<SplashScreen> {
     latitude = location.latitude;
     longitude = location.longitude;
 
-    var url = Uri.parse(
+    var url1 = Uri.parse(
+        'https://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric');
+    var url2 = Uri.parse(
         'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric');
-    NetworkHelper networkHelper = NetworkHelper(url);
+    NetworkHelper networkHelper1 = NetworkHelper(url1);
+    NetworkHelper networkHelper2 = NetworkHelper(url2);
 
-    var weatherData = await networkHelper.getData();
+    var weatherData1 = await networkHelper1.getData();
+    var weatherData2 = await networkHelper2.getData();
     // ignore: avoid_print
     // print(weatherData);
 
@@ -43,7 +47,8 @@ class _SplashScreenState extends State<SplashScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => HomeScreen(
-          locationWeather: weatherData,
+          locationWeather1: weatherData1,
+          locationWeather2: weatherData2,
         ),
       ),
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/day_minicard.dart';
 
@@ -6,8 +8,10 @@ import '../widgets/night_card.dart';
 import '../widgets/night_minicard.dart';
 
 class HomeScreen extends StatefulWidget {
-  final locationWeather;
-  const HomeScreen({Key? key, this.locationWeather}) : super(key: key);
+  final locationWeather1;
+  final locationWeather2;
+  const HomeScreen({Key? key, this.locationWeather1, this.locationWeather2})
+      : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -18,21 +22,43 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
 
-    updateUI(widget.locationWeather);
+    updateUI(widget.locationWeather1, widget.locationWeather2);
   }
 
   // PageController _pageController = PageController(initialPage: 0);
   bool isSecondOrder = false;
-  double? temperature;
-  int? condition;
+  int? tempDay;
+  int? tempNight;
+  int? humidityDay;
+  int? humidityNight;
+  int? windDay;
+  int? windNight;
+  int? pressureDay;
+  int? pressureNight;
   String? cityName;
 
-  void updateUI(dynamic weatherData) {
-    temperature = weatherData['main']['temp'];
-    condition = weatherData['weather'][0]['id'];
-    cityName = weatherData['name'];
+  void updateUI(dynamic weatherData1, dynamic weatherData2) {
+    double tempDays = weatherData1['list'][5]['main']['temp'];
+    tempDay = tempDays.toInt();
+    humidityDay = weatherData1['list'][5]['main']['humidity'];
+    double windDays = weatherData1['list'][5]['wind']['speed'];
+    windDay = windDays.toInt();
+    pressureDay = weatherData1['list'][5]['main']['pressure'];
 
-    print(temperature);
+    double tempNights = weatherData1['list'][0]['main']['temp'];
+    tempNight = tempNights.toInt();
+    humidityNight = weatherData1['list'][0]['main']['humidity'];
+    double windNights = weatherData1['list'][0]['wind']['speed'];
+    windNight = windNights.toInt();
+    pressureNight = weatherData1['list'][0]['main']['pressure'];
+
+    cityName = weatherData2['name'];
+    // double temp = weatherData['main']['temp'];
+    // temperature = temp.toInt();
+    // condition = weatherData['weather'][0]['id'];
+    // cityName = weatherData['name'];
+
+    // print(weatherData);
   }
 
   @override
@@ -87,16 +113,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: isSecondOrder
                     ? Column(
                         children: [
-                          DayMiniCard(size: size),
+                          // SizedBox(height: size.height * 0.03),
+                          DayMiniCard(
+                            size: size,
+                            temp: tempDay,
+                          ),
                           SizedBox(height: size.height * 0.03),
-                          NightCard(size: size),
+                          NightCard(
+                            size: size,
+                            temp: tempNight,
+                            humidity: humidityNight,
+                            wind: windNight,
+                            pressure: pressureNight,
+                            cityName: cityName,
+                          ),
                         ],
                       )
                     : Column(
                         children: [
-                          DayCard(size: size),
+                          // SizedBox(height: size.height * 0.03),
+                          DayCard(
+                            size: size,
+                            temp: tempDay,
+                            humidity: humidityDay,
+                            wind: windDay,
+                            pressure: pressureDay,
+                            cityName: cityName,
+                          ),
                           SizedBox(height: size.height * 0.03),
-                          NightMiniCard(size: size),
+                          NightMiniCard(
+                            size: size,
+                            temp: tempNight,
+                          ),
                         ],
                       ),
               ),
