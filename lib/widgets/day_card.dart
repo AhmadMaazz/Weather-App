@@ -14,10 +14,19 @@ class DayCard extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Container(
         height: size.height * 0.6,
-        width: size.width * 0.85,
+        width: size.width * 0.9,
         decoration: BoxDecoration(
           color: const Color(0xFF53B0FB),
           borderRadius: BorderRadius.circular(50),
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromARGB(255, 0, 65, 134).withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(3, 3),
+              // changes the position of the shadow
+            ),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +99,7 @@ class DayCard extends StatelessWidget {
               child: Column(
                 children: const [
                   Text(
-                    '32',
+                    '32°',
                     style: TextStyle(
                       fontSize: 70,
                       fontWeight: FontWeight.bold,
@@ -121,69 +130,101 @@ class DayCard extends StatelessWidget {
                   padding: const EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Column(
                         children: [
-                          const Text(
-                            'Wind now',
-                            style: TextStyle(
-                              fontSize: 15,
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Wind now\n',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '  15',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'km',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(height: size.height * 0.007),
-                          const Text(
-                            '15',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          )
                         ],
                       ),
                       Column(
                         children: [
-                          const Text(
-                            'Humidity',
-                            style: TextStyle(
-                              fontSize: 15,
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Humidity\n',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' 32',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '%',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(height: size.height * 0.007),
-                          const Text(
-                            '32',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          )
                         ],
                       ),
                       Column(
                         children: [
-                          const Text(
-                            'Precipitation',
-                            style: TextStyle(
-                              fontSize: 15,
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Precipitation\n',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '   87',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '%',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(height: size.height * 0.007),
-                          const Text(
-                            '87',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          )
                         ],
                       ),
                     ],
