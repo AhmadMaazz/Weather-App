@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/searchscreen.dart';
+
 class DayCard extends StatelessWidget {
   final int? temp;
   final int? wind;
@@ -67,7 +69,14 @@ class DayCard extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CityScreen(),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.tune),
                     constraints: const BoxConstraints(),
                     color: Colors.white,

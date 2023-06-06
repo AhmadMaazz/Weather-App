@@ -65,6 +65,9 @@ flutter:
   assets:
     - assets/images/sunny.png
     - assets/images/moony.png
+    - assets/images/weather.jpg
+    - assets/images/weather2.jpg
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
