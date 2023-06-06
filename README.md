@@ -12,7 +12,8 @@ The Weather App is a feature-rich mobile application that provides comprehensive
 - **Responsive Design**: Enjoy a seamless user experience across different screen sizes and orientations. The app's responsive design ensures optimal usage on various devices, including smartphones and tablets.
 
 ## Video
-https://github.com/AhmadMaazz/Weather-App-With-Animation/assets/104638885/a68f1487-d424-4225-9a2a-eed46f2688d7
+
+https://github.com/AhmadMaazz/Weather-App-With-Animation/assets/104638885/e4d6c323-9047-418c-9eb9-47c5b14619a8
 
 <!-- Add a collection of eye-catching screenshots showcasing the different features of your app. -->
 
