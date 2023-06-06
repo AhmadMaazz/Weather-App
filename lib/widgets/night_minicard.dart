@@ -4,7 +4,8 @@ class NightMiniCard extends StatelessWidget {
   final int? temp;
   const NightMiniCard({
     Key? key,
-    required this.size, this.temp,
+    required this.size,
+    this.temp,
   }) : super(key: key);
 
   final Size size;
@@ -17,7 +18,7 @@ class NightMiniCard extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         child: Container(
           // alignment: Alignment.bottomCenter,
-          height: size.height * 0.26,
+          height: size.height * 0.233,
           width: size.width * 0.9,
           // color: Colors.white,
           decoration: BoxDecoration(
@@ -69,7 +70,7 @@ class NightMiniCard extends StatelessWidget {
                 ],
               ),
               // SizedBox(height: 10),
-               Align(
+              Align(
                 alignment: Alignment.center,
                 child: Text(
                   '$temp°',

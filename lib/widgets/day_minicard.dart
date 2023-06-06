@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class DayMiniCard extends StatelessWidget {
   final int? temp;
+  final String url;
   const DayMiniCard({
     Key? key,
     required this.size,
     this.temp,
+    required this.url,
   }) : super(key: key);
 
   final Size size;
@@ -16,20 +18,27 @@ class DayMiniCard extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Container(
         // alignment: Alignment.bottomCenter,
-        height: size.height * 0.26,
+        height: size.height * 0.233,
         width: size.width * 0.9,
         // color: Colors.white,
         decoration: BoxDecoration(
           color: const Color(0xFF3C90EA),
           borderRadius: BorderRadius.circular(50),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: const Color.fromARGB(255, 0, 65, 134).withOpacity(0.5),
+          //     spreadRadius: 2,
+          //     blurRadius: 5,
+          //     offset: const Offset(3, 3),
+          //     // changes the position of the shadow
+          //   ),
+          // ],
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(255, 0, 65, 134).withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(3, 3),
-              // changes the position of the shadow
-            ),
+                color: const Color.fromARGB(255, 37, 142, 255).withOpacity(0.5),
+                offset: const Offset(0, -25),
+                blurRadius: 4,
+                spreadRadius: -10)
           ],
         ),
         child: Stack(
@@ -63,7 +72,7 @@ class DayMiniCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(5.0),
                   child: Image.asset(
-                    'assets/images/sunny.png',
+                    url,
                     scale: 3.5,
                   ),
                 )

@@ -25,7 +25,7 @@ class NightCard extends StatelessWidget {
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          height: size.height * 0.6,
+          height: size.height * 0.56,
           width: size.width * 0.9,
           decoration: BoxDecoration(
             color: const Color(0xFF1F2229),
@@ -81,7 +81,7 @@ class NightCard extends StatelessWidget {
                 // color: Color(0xFF3C90EA),
                 // color: Colors.red,
                 width: size.width,
-                height: size.height * 0.21,
+                height: size.height * 0.18,
                 child: Stack(
                   children: [
                     SizedBox(

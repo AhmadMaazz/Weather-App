@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../screens/searchscreen.dart';
 
-class DayCard extends StatelessWidget {
+class DayCard extends StatefulWidget {
   final int? temp;
   final int? wind;
   final int? humidity;
   final int? pressure;
   final String? cityName;
+  final String url;
+
   const DayCard({
     Key? key,
     required this.size,
@@ -16,28 +18,42 @@ class DayCard extends StatelessWidget {
     this.humidity,
     this.pressure,
     this.cityName,
+    required this.url,
   }) : super(key: key);
 
   final Size size;
 
   @override
+  State<DayCard> createState() => _DayCardState();
+}
+
+class _DayCardState extends State<DayCard> {
+  @override
   Widget build(BuildContext context) {
+    setState(() {});
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-        height: size.height * 0.6,
-        width: size.width * 0.9,
+        height: widget.size.height * 0.56,
+        width: widget.size.width * 0.9,
         decoration: BoxDecoration(
           color: const Color(0xFF53B0FB),
           borderRadius: BorderRadius.circular(50),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: const Color.fromARGB(255, 0, 65, 134).withOpacity(0.5),
+          //     spreadRadius: 2,
+          //     blurRadius: 5,
+          //     offset: const Offset(3, 3),
+          //     // changes the position of the shadow
+          //   ),
+          // ],
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(255, 0, 65, 134).withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(3, 3),
-              // changes the position of the shadow
-            ),
+                color: const Color.fromARGB(255, 37, 142, 255).withOpacity(0.5),
+                offset: const Offset(0, -25),
+                blurRadius: 4,
+                spreadRadius: -10)
           ],
         ),
         child: Column(
@@ -68,6 +84,18 @@ class DayCard extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // IconButton(
+                  //   onPressed: () async {
+                  //     var weatherDataT1 =
+                  //         await weatherModel.getLocationWeather();
+                  //     var weatherData1 = weatherDataT1[0];
+                  //     var weatherData2 = weatherDataT1[1];
+                  //   },
+                  //   icon: const Icon(Icons.place),
+                  //   constraints: const BoxConstraints(),
+                  //   color: Colors.white,
+                  //   iconSize: 25,
+                  // ),
                   IconButton(
                     onPressed: () {
                       Navigator.push(
@@ -88,13 +116,13 @@ class DayCard extends StatelessWidget {
             SizedBox(
               // color: Color(0xFF3C90EA),
               // color: Colors.red,
-              width: size.width,
-              height: size.height * 0.21,
+              width: widget.size.width,
+              height: widget.size.height * 0.18,
               child: Stack(
                 children: [
                   SizedBox(
-                    width: size.width,
-                    height: size.height * 0.5,
+                    width: widget.size.width,
+                    height: widget.size.height * 0.5,
                     child: CustomPaint(
                       painter: ArcPainter(),
                     ),
@@ -103,7 +131,7 @@ class DayCard extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 30),
                     child: Center(
                       child: Image.asset(
-                        'assets/images/sunny.png',
+                        widget.url,
                         scale: 1.85,
                       ),
                     ),
@@ -113,12 +141,12 @@ class DayCard extends StatelessWidget {
             ),
             Container(
               color: const Color(0xFF3C90EA),
-              width: size.width,
-              height: size.height * 0.17,
+              width: widget.size.width,
+              height: widget.size.height * 0.17,
               child: Column(
                 children: [
                   Text(
-                    '$temp°',
+                    '${widget.temp}°',
                     style: const TextStyle(
                       fontSize: 70,
                       fontWeight: FontWeight.bold,
@@ -126,7 +154,7 @@ class DayCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '$cityName',
+                    '${widget.cityName}',
                     style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w500,
@@ -163,7 +191,7 @@ class DayCard extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '  $wind',
+                                  text: '  ${widget.wind}',
                                   style: const TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,
@@ -195,7 +223,7 @@ class DayCard extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: ' $humidity',
+                                  text: ' ${widget.humidity}',
                                   style: const TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,
@@ -227,7 +255,7 @@ class DayCard extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '$pressure',
+                                  text: '${widget.pressure}',
                                   style: const TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,

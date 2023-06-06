@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/screens/splashscreen.dart';
 
 void main() {
+  Future.delayed(const Duration(seconds: 40));
   runApp(const MyApp());
 }
 
