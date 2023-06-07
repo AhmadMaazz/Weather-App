@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/screens/homescreen.dart';
 import 'package:weather_app/services/weather.dart';
 
-const apiKey = '0c324e13be8028353f5765fc15489f22';
+const apiKey = 'Use your own app id here';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
